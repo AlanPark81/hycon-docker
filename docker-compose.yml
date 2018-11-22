@@ -1,0 +1,17 @@
+version: '2.1'
+
+services:
+  hycon-seed:
+    #If you want to build from Dockerfile comment out these 3 and comment for the image tag
+    #build:
+      #context: .
+      #dockerfile: ./Dockerfile
+    image: jbam/hycon-base:seedv1
+    environment:
+      - SOURCE_DIR=/app/hycon-core
+    volumes:
+      - ~/docker/app/logs:/app/hycon-core/logs
+    ports: 
+      - "8248-8258:8148"
+      - "9181-9191:9081"
+      - "2542-2552:2442"
